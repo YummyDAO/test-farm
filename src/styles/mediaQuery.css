@@ -1,0 +1,21 @@
+@media screen and (max-width: 900) {
+}
+
+@media only screen and (max-width:768px){
+  header{
+    flex-wrap: wrap;
+  }
+  .right{
+    width: 100%;
+    justify-content: center;
+    margin-right: 0 !important;
+  }
+  .outline{
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .out{
+    width: 33% !important;
+  }
+}
+
