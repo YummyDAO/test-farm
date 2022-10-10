@@ -1,0 +1,57 @@
+{
+    "name": "Puffyswap Token List",
+    "timestamp": "2021-07-29T04:18:23.593Z",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 82
+    },
+    "tags": {},
+    "logoURI": "https://github.com/PuffyDAO/Brand-assets/blob/main/puffy_logo.png",
+    "keywords": [
+      "uniswap",
+      "default"
+    ],
+    "tokens": [
+      {
+        "name": "Puffyswap Token",
+        "address": "0xC0F19F94d84eec16c413f161d4D061F89EA14f99",
+        "symbol": "PUFFY",
+        "decimals": 18,
+        "chainId": 10001,
+        "logoURI": "https://github.com/PuffyDAO/Brand-assets/blob/main/puffy_logo.png"
+      },
+      {
+        "name": "USDW Stablecoin",
+        "address": "0x520A36eE3aa0b506288915f91Fb4BBB23d09a7D7",
+        "symbol": "USDW",
+        "decimals": 18,
+        "chainId": 10001,
+        "logoURI": "https://github.com/Real-protocol/Brand-Assets/blob/main/USDW-64.png"
+      },
+      {
+        "name": "LFG Token",
+        "address": "0xFd483e333cBe8fE7A418D9398d6BB81CC2B8e07B",
+        "symbol": "LFG",
+        "decimals": 18,
+        "chainId": 10001,
+        "logoURI": "https://etherscan.io/token/images/aave_32.png"
+      },
+      {
+        "name": "REALP",
+        "address": "0x39618C912e22fAD4A9bd47037Cd1f88b69b029cc",
+        "symbol": "REALP",
+        "decimals": 18,
+        "chainId": 10001,
+        "logoURI": "https://github.com/Real-protocol/Brand-Assets/blob/main/REALP-64.png"
+      },
+      {
+        "name": "TETHER",
+        "address": "0x2AD7868CA212135C6119FD7AD1Ce51CFc5702892",
+        "symbol": "USDT",
+        "decimals": 8,
+        "chainId": 10001,
+        "logoURI": "https://i.imgur.com/R0aQlym.png"
+      }
+    ]
+  }

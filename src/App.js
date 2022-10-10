@@ -67,6 +67,7 @@ const App = () => {
   
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
+	const default1 = '1000000';
 
 	const connectWallet = async () => {
 		try {
@@ -182,9 +183,10 @@ const App = () => {
 		  const provider = new ethers.providers.Web3Provider(ethereum);
 		  const signer = provider.getSigner();
 		  const contract = new ethers.Contract(CONTRACT_ADDRESS, contractAbi.abi, signer);
+		  let amount = ethers.utils.parseUnits(value.toString(), "ether");
 	
 				console.log("Going to pop wallet now to pay gas...")
-		  let tx = await contract.stake(value);
+		  let tx = await contract.stake(amount);
 		  // Wait for the transaction to be mined
 				const receipt = await tx.wait();
 	
@@ -237,7 +239,8 @@ const App = () => {
 		  const contract = new ethers.Contract(CONTRACT_ADDRESS, contractAbi.abi, signer);
 	
 				console.log("Going to pop wallet now to pay gas...")
-		  let tx = await contract.withdraw(value);
+				let amount = ethers.utils.parseUnits(value.toString(), "ether");
+		  let tx = await contract.withdraw(amount);
 		  // Wait for the transaction to be mined
 				const receipt = await tx.wait();
 	
@@ -362,8 +365,9 @@ const App = () => {
 		  const contract = new ethers.Contract(pairCONTRACT_ADDRESS, pairAbi.abi, signer);
 	
 				console.log("Going to pop wallet now to pay gas...")
+				let amount = ethers.utils.parseUnits(default1.toString(), "ether");
 		  //let tx = await contract.stake(value);
-		  let tx = await contract.approve(CONTRACT_ADDRESS, 1000);
+		  let tx = await contract.approve(CONTRACT_ADDRESS, amount);
 		  // Wait for the transaction to be mined
 				const receipt = await tx.wait();
 	
@@ -408,6 +412,8 @@ const App = () => {
 				const contract = new ethers.Contract(CONTRACT_ADDRESS, contractAbi.abi, signer);
 	
 				let tx = contract.earned(signer.address);
+				let newvalue = tx;
+				console.log(newvalue)
 				//console.log("Record set https://mumbai.polygonscan.com/tx/"+tx.hash);
 				setearned1('')
 	
@@ -473,9 +479,11 @@ const App = () => {
 	};
 
 	useEffect(() => {
+		setTimeout(() => {
 		Fetchearnings1()
 		Stakedbalance1()
-	})
+		}, 100)
+	}, [])
 
 	/*useEffect(() => {
 		fetchMints()
@@ -505,7 +513,7 @@ const App = () => {
             <p style={{width:"16%", textAlign:"center", fontSize:"1.3rem", fontWeight:"500"}} className="out">Earned</p>
 			<p style={{width:"16%", textAlign:"center", fontSize:"1.3rem", fontWeight:"500"}} className="out"></p>
           </div>
-          <div style={{display: "flex", width:'100%', justifyContent: "center", alignItems:"center", background:"white", borderRadius:"15px", padding:"20px", boxShadow:"4px 2px 5px 0px rgb(0 0 0 / 48%)"}} className="outline">
+          <div style={{display: "flex", width:'100%', justifyContent: "center", alignItems:"center", background:"white", borderRadius:"15px", padding:"20px", boxShadow:"4px 2px 5px 0px rgb(0 0 0 / 48%)"}} className="outline outline1">
 		  <img style={{width:"16%", textAlign:"center"}} alt='pairimage' className="out"/>
             <p style={{width:"16%", textAlign:"center"}} className="out">PUFFY/ETHW</p>
             <p style={{width:"16%", textAlign:"center"}} className="out">Apr</p>
