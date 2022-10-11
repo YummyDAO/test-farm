@@ -3,6 +3,7 @@ import './styles/App.css';
 import './styles/mediaQuery.css';
 //import { Pool1 } from "./components/LoadingIndicator";
 import twitterLogo from './assets/puffy_logo.png';
+import lp1 from './assets/lp1.png';
 import {ethers} from "ethers";
 import contractAbi from './utils/StakingRewards.json';
 import lpcontractAbi1 from './utils/UniswapV2ERC20.json';//change to real abi
@@ -89,48 +90,7 @@ const App = () => {
 		}
 	};
 
-	const switchNetwork = async () => {
-		if (window.ethereum) {
-			try {
-				// Try to switch to the Mumbai testnet
-				await window.ethereum.request({
-					method: 'wallet_switchEthereumChain',
-					params: [{ chainId: '0x13881' }], // Check networks.js for hexadecimal network ids
-				});
-			} catch (error) {
-				// This error code means that the chain we want has not been added to MetaMask
-				// In this case we ask the user to add it to their MetaMask
-				if (error.code === 4902) {
-					try {
-						await window.ethereum.request({
-							method: 'wallet_addEthereumChain',
-							params: [
-								{	
-									chainId: '0x13881',
-									chainName: 'Polygon Mumbai Testnet',
-									rpcUrls: ['https://rpc-mumbai.maticvigil.com/'],
-									nativeCurrency: {
-											name: "Mumbai Matic",
-											symbol: "MATIC",
-											decimals: 18
-									},
-									blockExplorerUrls: ["https://mumbai.polygonscan.com/"]
-								},
-							],
-						});
-					} catch (error) {
-						console.log(error);
-					}
-				}
-				console.log(error);
-			}
-		} else {
-			// If window.ethereum is not found then MetaMask is not installed
-			alert('MetaMask is not installed. Please install it to use this app: https://metamask.io/download.html');
-		} 
-	};
-
-	/*const checkIfWalletIsConnected = async () => {
+	const checkIfWalletIsConnected = async () => {
 		// First make sure we have access to window.ethereum
 		const { ethereum } = window;
 	
@@ -152,18 +112,8 @@ const App = () => {
 		} else {
 			console.log('No authorized account found');
 		}
+	};
 
-		// This is the new part, we check the user's network chain ID
-		const chainId = await ethereum.request({ method: 'eth_chainId' });
-		setNetwork(networks[chainId]);
-		
-		ethereum.on('chainChanged', handleChainChanged);
-				
-		// Reload the page when they change networks
-		function handleChainChanged(_chainId) {
-		window.location.reload();
-		}
-	};*/
 
 	const Stake = async () => {
 		// Don't run if the domain is empty
@@ -322,28 +272,6 @@ const App = () => {
 	  }
 	};
 
-	//async function getapproval1() {
-		//try {
-			//const { ethereum } = window;
-			//if (ethereum) {
-				//const provider = new ethers.providers.Web3Provider(ethereum);
-				//const signer = provider.getSigner();
-				//console.log(signer);
-				//const contract = new ethers.Contract(pairCONTRACT_ADDRESS, pairAbi.abi, signer);
-	
-				//let tx = await contract.approve("0xDc5C5eFb38E74a94149c9bC03b739D6758397b4F", 1000);
-				//await tx.wait();
-				//console.log(tx)
-				//console.log("Record set https://mumbai.polygonscan.com/tx/"+tx.hash);
-	
-				//fetchMints();
-				//setRecord('');
-				//setDomain('');
-			//}
-		  //} catch(error) {
-			//console.log(error);
-		  //}
-	//}
 
 	const Approve1 = async () => {
 		// Don't run if the domain is empty
@@ -410,12 +338,17 @@ const App = () => {
 				const provider = new ethers.providers.Web3Provider(ethereum);
 				const signer = provider.getSigner();
 				const contract = new ethers.Contract(CONTRACT_ADDRESS, contractAbi.abi, signer);
+				const address1 = currentAccount;
 	
-				let tx = contract.earned(signer.address);
-				let newvalue = tx;
+				let tx = await contract.earned(address1);
+				console.log(tx)
+				let newvalue = tx.toString();
 				console.log(newvalue)
+				const ethvalue = ethers.utils.formatEther(newvalue)
+				const ethvalue1 = Math.round(ethvalue * 1e4) / 1e4;
+				console.log(ethvalue)
 				//console.log("Record set https://mumbai.polygonscan.com/tx/"+tx.hash);
-				setearned1('')
+				setearned1(ethvalue1)
 	
 				//fetchMints();
 				//setRecord('');
@@ -436,12 +369,17 @@ const App = () => {
 			if (ethereum) {
 				const provider = new ethers.providers.Web3Provider(ethereum);
 				const signer = provider.getSigner();
-				const contract = new ethers.Contract(lpCONTRACT_ADDRESS2, lpcontractAbi1.abi, signer);//change to lp address
+				const contract = new ethers.Contract(pairCONTRACT_ADDRESS, lpcontractAbi1.abi, signer);//change to lp address
+				const address1 = currentAccount;
 	
-				let tx = contract.balanceOf(signer.address);
-				console.log(tx);
+				let tx = await contract.balanceOf(address1);
+				const newvalue = tx.toString();
+				console.log(newvalue);
+				const ethvalue = ethers.utils.formatEther(newvalue)
+				const ethvalue1 = Math.round(ethvalue * 1e4) / 1e4;
+				console.log(ethvalue1)
 				//console.log("Record set https://mumbai.polygonscan.com/tx/"+tx.hash);
-				setlpbal1('tx')
+				setlpbal1(ethvalue1)
 	
 				//fetchMints();
 				//setRecord('');
@@ -463,10 +401,15 @@ const App = () => {
 				const provider = new ethers.providers.Web3Provider(ethereum);
 				const signer = provider.getSigner();
 				const contract = new ethers.Contract(CONTRACT_ADDRESS, contractAbi.abi, signer);
+				const address1 = currentAccount;
 	
-				let tx = contract.balanceOf(signer.address);
+				let tx = await contract.balanceOf(address1);
+				let newvalue = tx.toString();
+				const ethvalue = ethers.utils.formatEther(newvalue)
+				const ethvalue1 = Math.round(ethvalue * 1e4) / 1e4;
+				console.log(ethvalue1)
 				//console.log("Record set https://mumbai.polygonscan.com/tx/"+tx.hash);
-				setcontract1('')
+				setcontract1(ethvalue1)
 				console.log(tx)
 				//fetchMints();
 				//setRecord('');
@@ -477,17 +420,17 @@ const App = () => {
 		  }
 		//setLoading(false);
 	};
+	useEffect(() => {
+		checkIfWalletIsConnected();
+	}, [])
 
 	useEffect(() => {
 		setTimeout(() => {
 		Fetchearnings1()
 		Stakedbalance1()
-		}, 100)
-	}, [])
-
-	/*useEffect(() => {
-		fetchMints()
-	}*/
+		lpbalance1()
+		}, 5000)
+	}, [Fetchearnings1, Stakedbalance1])
 
   return (
 		<div className="App">
@@ -514,7 +457,7 @@ const App = () => {
 			<p style={{width:"16%", textAlign:"center", fontSize:"1.3rem", fontWeight:"500"}} className="out"></p>
           </div>
           <div style={{display: "flex", width:'100%', justifyContent: "center", alignItems:"center", background:"white", borderRadius:"15px", padding:"20px", boxShadow:"4px 2px 5px 0px rgb(0 0 0 / 48%)"}} className="outline outline1">
-		  <img style={{width:"16%", textAlign:"center"}} alt='pairimage' className="out"/>
+		  <div style={{width:"16%", textAlign:"center"}} className="out"><img  alt='pairimage' src={lp1}/></div>
             <p style={{width:"16%", textAlign:"center"}} className="out">PUFFY/ETHW</p>
             <p style={{width:"16%", textAlign:"center"}} className="out">Apr</p>
             <p style={{width:"16%", textAlign:"center"}} className="out">160,000</p>
@@ -530,6 +473,7 @@ const App = () => {
           <Modal.Title>Puffy/Ethw pair staking</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+			<p>Your lp balance: {lpbal1}</p>
           <input type="number" name='stakeamount' placeholder='Enter stake amount...' onChange={e => setValue(e.target.value)}/>
           <p>Your returns in one year would be equals to</p>
         </Modal.Body>

@@ -7,7 +7,7 @@
       "patch": 82
     },
     "tags": {},
-    "logoURI": "https://github.com/PuffyDAO/Brand-assets/blob/main/puffy_logo.png",
+    "logoURI": "https://gateway.pinata.cloud/ipfs/QmPaWbKXJdWEgDfoJX56JC3YixnMBgHu2EfDrVgQubAEsi",
     "keywords": [
       "uniswap",
       "default"
@@ -19,7 +19,7 @@
         "symbol": "PUFFY",
         "decimals": 18,
         "chainId": 10001,
-        "logoURI": "https://github.com/PuffyDAO/Brand-assets/blob/main/puffy_logo.png"
+        "logoURI": "https://gateway.pinata.cloud/ipfs/QmPaWbKXJdWEgDfoJX56JC3YixnMBgHu2EfDrVgQubAEsi"
       },
       {
         "name": "USDW Stablecoin",
@@ -27,7 +27,7 @@
         "symbol": "USDW",
         "decimals": 18,
         "chainId": 10001,
-        "logoURI": "https://github.com/Real-protocol/Brand-Assets/blob/main/USDW-64.png"
+        "logoURI": "https://gateway.pinata.cloud/ipfs/QmbrZop6rsHs7BTF138HeNNutGq3J6U8XuPAts234iJxA1"
       },
       {
         "name": "LFG Token",
@@ -35,7 +35,7 @@
         "symbol": "LFG",
         "decimals": 18,
         "chainId": 10001,
-        "logoURI": "https://etherscan.io/token/images/aave_32.png"
+        "logoURI": "https://github.com/PuffyDAO/Brand-assets/blob/main/puffy_logo.png"
       },
       {
         "name": "REALP",
@@ -43,7 +43,7 @@
         "symbol": "REALP",
         "decimals": 18,
         "chainId": 10001,
-        "logoURI": "https://github.com/Real-protocol/Brand-Assets/blob/main/REALP-64.png"
+        "logoURI": "https://gateway.pinata.cloud/ipfs/QmUQ42HayFzMUvQY6aKmi4W5PB7EovGVRmnszFybsgZXXm"
       },
       {
         "name": "TETHER",
@@ -51,7 +51,7 @@
         "symbol": "USDT",
         "decimals": 8,
         "chainId": 10001,
-        "logoURI": "https://i.imgur.com/R0aQlym.png"
+        "logoURI": "https://www.worldcryptoindex.com/wp-content/uploads/2018/01/usdt-logo-300.png"
       }
     ]
   }
