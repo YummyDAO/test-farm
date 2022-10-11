@@ -308,6 +308,10 @@ input:focus {
 input{
   width: 100%;
 }
+.out img{
+  width: 50px;
+  height: 50px;
+}
 .modal-footer{
   width: 100%;
   display: flex !important;
