@@ -25,7 +25,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const CONTRACT_ADDRESS = '0xDc5C5eFb38E74a94149c9bC03b739D6758397b4F';//puffy/ethw
 const CONTRACT_ADDRESS2 = '0x0aC8F437A5A2454B7A7cdfF3606a1198a35374CD';//realp/ethw
 const CONTRACT_ADDRESS3 = '0x54a01C3d84c9100e525E852c67Ac93DBEde54CFE';//hex/usdw
-const CONTRACT_ADDRESS4 = '0x3c914a5c6F1DcC3c9F1277499868b0297F0B749d';//lfg/usdw  ... //change to lfg
+const CONTRACT_ADDRESS4 = '0x3c914a5c6F1DcC3c9F1277499868b0297F0B749d'; //lfg/usdw  ... //change to lfg
 const lpCONTRACT_ADDRESS1 = '0x9105de8cabaaee7192724b20baea4668e666e9db';//change to real lp address
 const lpCONTRACT_ADDRESS2='0xf50bf8195c72dfd49fff75d39aed0fd92f706c35';
 const lpCONTRACT_ADDRESS3='0x6C06f81AaFffc4Fb6552ee6f73bc5c42e7DDc85a';
