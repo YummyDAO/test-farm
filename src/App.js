@@ -462,10 +462,10 @@ const App = () => {
             <p style={{width:"16%", textAlign:"center"}} className="out">Apr</p>
             <p style={{width:"16%", textAlign:"center"}} className="out">160,000</p>
 			<div style={{width:"16%", textAlign:"center"}} className="out">
-            {earned1 ? <p >{earned1}</p>: 0}
+            {contract1 ? <p>{contract1}</p>: 0}
 			</div>
 			<div style={{width:"16%", textAlign:"center"}} className="out">
-            {contract1 ? <p>{contract1}</p>: 0}
+            {earned1 ? <p >{earned1}</p>: 0}
 			</div>
             <Button variant="primary" onClick={handleShow} className="out">Manage</Button>
             <Modal show={show} onHide={handleClose} dialogClassName="modal-90w">
